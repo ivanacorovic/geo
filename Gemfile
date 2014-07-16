@@ -34,7 +34,11 @@ end
 
 gem "area"
 gem "geocoder"
+gem "rspec"
+gem "rspec-mocks"
 
+# gem 'activerecord-postgis-adapter'
+# gem 'rgeo'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

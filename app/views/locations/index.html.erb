@@ -1,6 +1,6 @@
 <%= form_for :search, method: :get, url: "locations" do |form| %>
   <%= form.label :value, 'Search by Postal Code' %>
-  <%= form.text_field :value %>
+  <%= form.text_field :value, placeholder: @current_location_by_ip%>
   <%= form.submit 'Search' %>
 <% end %>
 
@@ -28,5 +28,15 @@
       });
       mapper.render();
     });
+
+    $(function() {
+      if ($('#search_value').attr('placeholder')==null) {
+        var currentLocation = new ExampleApp.CurrentLocation();
+        currentLocation.getLocation(function(location) {
+        $('#search_value').attr('placeholder', location);
+      })
+      }
+    });
+
   <% end %>
 <% end %>
