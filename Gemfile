@@ -34,7 +34,7 @@ end
 
 gem "area"
 gem "geocoder"
-gem "rspec"
+gem "rspec-rails"
 gem "rspec-mocks"
 
 # gem 'activerecord-postgis-adapter'
