@@ -12,8 +12,8 @@ class @ExampleApp.Map
     @_plotCoordinates()
 
   _updateCenter: ->
-   @googleMap.fitBounds @bounds.googleLatLngBounds
-   @googleMap.setCenter @bounds.getCenter()
+    @googleMap.fitBounds @bounds.googleLatLngBounds
+    @googleMap.setCenter @bounds.getCenter()
 
   _plotCoordinates: ->
     for latLng in @bounds.latLngs
