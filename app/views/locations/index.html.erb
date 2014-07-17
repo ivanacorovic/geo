@@ -1,10 +1,13 @@
 <%= form_for :search, method: :get, url: "locations" do |form| %>
-  <%= form.label :value, 'Search by Postal Code' %>
-  <%= form.text_field :value, placeholder: @current_location_by_ip%>
+  <%= form.label :value, 'Search by Location' %>
+  <%= form.text_field :value, placeholder: @current_location%>
   <%= form.submit 'Search' %>
 <% end %>
 
-<div id="map" style="height: 400px;"></div>
+<div id="map1" style="height: 400px;"></div>
+
+<div id="map" style="height: 360px" data-key="AIzaSyDPLqOSnc8cZl_cydt5eFiUHD0j9esm_gk"> </div>
+
 <ul class="locations">
   <% @locations.each do |location| %>
     <%= render location %>
@@ -18,7 +21,7 @@
   <%= javascript_tag do %>
     $(function() {
 
-      var mapper = new ExampleApp.Mapper('#map');
+      var mapper = new ExampleApp.Mapper('#map1');
  
       $('[data-latitude]').each(function(index, element) {
         mapper.addCoordinates(
@@ -37,6 +40,5 @@
       })
       }
     });
-
   <% end %>
 <% end %>

@@ -27,6 +27,10 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+group :test do
+  gem 'capybara', '2.1.0'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -36,6 +40,7 @@ gem "area"
 gem "geocoder"
 gem "rspec-rails"
 gem "rspec-mocks"
+gem 'leaflet-rails', '~> 0.7.3'
 
 # gem 'activerecord-postgis-adapter'
 # gem 'rgeo'
