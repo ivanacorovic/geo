@@ -29,22 +29,55 @@ $ ->
 
   cities = L.layerGroup([littleton, denver, aurora, golden])
   
+  geojsonFeature =
+    type: "Feature",
+    properties: 
+      name: "Coors Field",
+      amenity: "Baseball Stadium",
+      popupContent: "This is where the Rockies play!"
+    geometry:
+      type: "Point",
+      coordinates: [-104.99404, 39.75621]
+
+  myLines =
+    type: "LineString",
+    coordinates: [[-100, 40], [-105, 45], [-110, 55]],
+    type: "LineString",
+    coordinates: [[-105, 40], [-110, 45], [-115, 55]]
+
+  myStyle = 
+    color: "#ff7800",
+    weight: 5,
+    opacity: 0.65
+
+  myLineData = L.geoJson(myLines, {
+    style: myStyle
+  })
+  myLineData.addData(myLines)
+
+  myLayer = L.geoJson()
+  myLayer.addData(geojsonFeature)
+
   map = L.map('map', {
     center: [39.73, -104.99],
     zoom: 5,
-    layers: [cities, my_data]
+    layers: [cities, my_data, myLayer, myLineData]
   });
 
-  baseMaps = {
-    "My_data": my_data
-  };
+  baseMaps = 
+    My_data: my_data
 
-  overlayMaps = {
-      "Cities": cities
-  };
+  overlayMaps = 
+    Cities: cities
+    MyLayer: myLayer
+    MyLineData:  myLineData
 
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  L.control.layers(baseMaps, overlayMaps).addTo(map);
+ 
+
+  
+
+  L.control.layers(baseMaps, overlayMaps, myLayer).addTo(map)
