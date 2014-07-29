@@ -76,8 +76,4 @@ $ ->
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
- 
-
-  
-
   L.control.layers(baseMaps, overlayMaps, myLayer).addTo(map)

@@ -1,0 +1,13 @@
+<%= content_tag_for :li, company,
+  data: { latitude: company.latitude, longitude: company.longitude, name: company.name } do %>
+    <header>
+      <h1 data-role="name"><%= company.name %></h1>
+    </header>
+  <section>
+    <section class="company-info">
+      <p data-role="address"><%= company.address %></p><br>
+      <p data-role="phone-number"><%= company.phone %></p><br>
+      </p>
+    </section>
+  </section>
+<% end %>
