@@ -1,7 +1,7 @@
 <%= form_for :search, method: :get, url: "locations" do |form| %>
-  <%= form.label :value, 'Search by Location' %>
+  <%= form.label :value, 'Unesite svoj postanski kod' %>
   <%= form.text_field :value, placeholder: @current_location%>
-  <%= form.submit 'Search' %>
+  <%= form.submit 'Prikazi lokacije u blizini' %>
 <% end %>
 
 <div id="map" style="height: 360px" data-key="AIzaSyDPLqOSnc8cZl_cydt5eFiUHD0j9esm_gk"> </div>
