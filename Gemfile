@@ -41,6 +41,7 @@ gem "geocoder"
 gem "rspec-rails"
 gem "rspec-mocks"
 gem 'leaflet-rails', '~> 0.7.3'
+gem 'bootstrap-sass', '~> 3.0'
 
 # gem 'activerecord-postgis-adapter'
 # gem 'rgeo'
