@@ -14,6 +14,8 @@ class TransactionsController < ApplicationController
             coordinates: [transaction.company.latitude, transaction.company.longitude]
           },
           name: transaction.name,
+          time: ((Time.now - transaction.created_at.time)/60).round(0),
+          address: transaction.company.address,
           :'marker-color' => '#00607d',
           :'marker-symbol' => 'circle',
           :'marker-size' => 'medium'
