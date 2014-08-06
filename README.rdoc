@@ -26,3 +26,29 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+var geojson;
+  if ($("#transactions_map").length>0) {
+    var map = L.map('transactions_map').setView([42.908846, 19.231684], 8);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map); 
+
+    $.ajax({
+        dataType: 'text',
+        url: 'transactions.json',
+        success: function(data) {
+      
+          geojson = $.parseJSON(data);
+          return map.featureLayer.setGeoJSON(geojson);
+        },
+      });
+    var company, lat, lon, name;
+    for (var i = 0; i< geojson.length; i++) {
+      company = geojson[i];
+      [lat, lon] = company.properties.geometry.coordinates;
+      name = company.properties.name;
+      if (lat && lon) {
+        marker = L.marker([lat, lon]).bindPopup("<b>#{name}</b>").addTo(map);
+      }
+    }
+  }
+  

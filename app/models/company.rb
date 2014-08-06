@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
-
+   has_many :transactions
+   
   class_attribute :geocoding_service
   self.geocoding_service = Geocoder
 

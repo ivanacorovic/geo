@@ -120,3 +120,26 @@ geojson = L.geoJson(mneData, {
 }).addTo(map);
 info.addTo(map);
 legend.addTo(map);
+
+function addPopup(map, popup) {
+  map.addLayer(popup);
+  alert("ivana");
+}
+
+function addPopup(map, popup) {
+  map.addLayer(popup);
+}
+var popup1 = new L.Popup();
+popup1.setLatLng(new L.LatLng(42.91, 19.24));
+popup1.setContent("I am a standalone popup 1.");
+
+
+var popup2 = new L.Popup();
+popup2.setLatLng(new L.LatLng(41.915, 19.245));
+popup2.setContent("I am a standalone popup 2.");
+
+var popups = new Array (popup1, popup2);
+
+for (var i = 0; i < popups.length; i++) {
+  setTimeout(function(x) { return function () { map.addLayer(popups[x]); }; }(i), 4000+i*1000);
+}

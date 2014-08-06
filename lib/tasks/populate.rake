@@ -29,5 +29,16 @@ namespace :db do
     Company.create({name: "Šljukić Co d.o.o. - Mljekara Srna", address: "Ozrinići bb, 81400 Nikšić", email: "mljeksrna@t-com.me", phone: "+38240258161"})
     Company.create({name: "Zunjić Company d.o.o. - Pekara Anđela", address: "Podanje bb, 81140 Danilovgrad", email: "andjelagz@t-com.me", phone: "+38220881450", fax: "+38220882050", website: "www.andjela.me"})
     Company.create({name: "Uniprom pekara d.o.o.", address: "Podgorički put bb, 81140 Danilovgrad", email: "uniprompekara@t-com.me", phone: "+38240253323", fax: "+38240253305", website: "www.uniprompekara.com"})
+  
+    Transaction.delete_all
+    Transaction.create({name: "Harry Potter and The Chamber of Sercrets", company_id: 1 })
+    Transaction.create({name: "The Lord Of The Rings", company_id: 4 })
+    Transaction.create({name: "Hobit", company_id: 2 })
+    Transaction.create({name: "Butterfly net", company_id: 5 })
+    Transaction.create({name: "Rubic Cube", company_id: 3 })
+    Transaction.create({name: "Lap top", company_id: 7 })
+    Transaction.create({name: "Suitcase", company_id: 10 })
+    Transaction.create({name: "Guitar", company_id: 15 })
+
   end
 end
