@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
 
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.latest
     @geojson = Array.new
 
     @transactions.each do |transaction|

@@ -20,7 +20,7 @@ var geojson;
               popup = new L.Popup();
               popup.setLatLng(new L.LatLng(lat, lon));
               time = transaction.properties.time;
-              if (time =1) {
+              if (time == 1) {
                 minutes = "minute";
                 
               }
